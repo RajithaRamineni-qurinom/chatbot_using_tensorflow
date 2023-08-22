@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        /* Add your custom CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .chat-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .chat-box {
+            height: 300px;
+            overflow: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .user-msg, .bot-msg {
+            margin: 5px;
+            padding: 8px;
+            border-radius: 10px;
+        }
+        .user-msg {
+            background-color: #f0f0f0;
+            text-align: right;
+        }
+        .bot-msg {
+            background-color: #e0e0e0;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <center><h1>AI ChatBot</h1></center>
+    <div class="chat-container">
+        <div class="chat-box" id="chat-box">
+            <!-- Chat messages will appear here -->
+        </div>
+        <div>
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+
+<script>
+    const chatBox = document.getElementById("chat-box");
+    const userInput = document.getElementById("user-input");
+    const sendBtn = document.getElementById("send-btn");
+
+    // Add a welcome message from the bot when the page loads
+    window.addEventListener("load", () => {
+        appendMessage("bot-msg", "Hello! I am your friendly chatbot. How can I assist you today?");
+    });
+
+    sendBtn.addEventListener("click", () => {
+        const userMessage = userInput.value;
+        if (userMessage.trim() !== "") {
+            appendMessage("user-msg", userMessage);
+            sendUserMessage(userMessage);
+            userInput.value = "";
+        }
+    });
+
+    function appendMessage(className, message) {
+        const messageDiv = document.createElement("div");
+        messageDiv.classList.add(className);
+        messageDiv.textContent = message;
+        chatBox.appendChild(messageDiv);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function sendUserMessage(message) {
+        // Send user message to Flask backend and get bot response
+        fetch("/get", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: `msg=${encodeURIComponent(message)}`,
+        })
+        .then(response => response.text())
+        .then(response => {
+            appendMessage("bot-msg", response);
+        })
+        .catch(error => console.error("Error sending user message:", error));
+    }
+</script>
+
+</body>
+</html>

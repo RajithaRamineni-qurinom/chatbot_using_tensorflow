@@ -1,0 +1,84 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi there", "How are you", "Is anyone there?","Hey","Hola", "Hello", "Good day"],
+         "responses": ["Hello", "Good to see you again", "Hi there, how can I help?"],
+         "context": [""]
+        },
+        {"tag": "bye",
+         "patterns": ["Bye", "See you later", "Goodbye", "Nice chatting to you, bye", "Till next time"],
+         "responses": ["See you!", "Have a nice day", "Bye! Come back again soon."],
+         "context": [""]
+        },
+
+        {"tag": "thanks",
+         "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
+         "responses": ["My pleasure", "You're Welcome"],
+         "context": [""]
+        },
+
+        {"tag": "invalid",
+         "patterns": ["","gvsd","asbhk","hjhj"],
+         "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"],
+         "context": [""]
+        },
+
+        {"tag": "product",
+         "patterns": ["Can you provide more information about the product","what are the products", "can you suggest some products", "recommendations of products","What are the key features of this product?","Are there any customer reviews or ratings for this product?","What materials is this product made from?","Is there a warranty or guarantee for this product?","Are there any special promotions or discounts for this product?",""],
+         "responses": ["Certainly! I'd be happy to provide more details about the product. Could you please let me know which product you are referring to?"],
+         "context": [""]
+        },
+
+        {"tag": "product information",
+         "patterns": ["What are the available color options for this product", "product colors", "color"],
+         "responses": ["The product is available in multiple color options including [list of colors]. You can choose your preferred color during the ordering process"],
+         "context": [""]
+        },
+
+        {"tag": "stock",
+         "patterns": ["Is this product currently in stock?", "stock", "product stock", "product availability"],
+         "responses": ["To check the availability of the product, may I have the product name or SKU number? That way, I can provide you with accurate information on its current stock status."],
+         "context": [""]
+        },
+
+        {"tag": "size",
+         "patterns": ["What are the size of this product?", "size"],
+         "responses": ["The size of the product are [size]. This information can also be found in the product description section on the product page"],
+         "context": [""]
+        },
+
+        {"tag": "store",
+         "patterns": ["What are the nearest stores of this product?", "stores"],
+         "responses": ["Fashion, Electrical, Home and Furniture, Plumbing"],
+         "context": [""]
+        },
+
+        {"tag": "website speciality",
+         "patterns": ["tell me about website speciality?","functionality or purpose or role of website","What makes your website unique in this field",""],
+         "responses": ["company creates the website and advertises the goods or services it offers, along with their costs. "],
+         "context": [""]
+        },
+
+        {"tag": "services",
+         "patterns": ["tell me about services offered by the website?", "what are the services offered or provided by website"],
+         "responses": ["We offer the services like Mechanical services, Plumber & Carpenter, Insurance services, Real Estate services, Rental services, Dry Cleaning, Electrical and Catering "],
+         "context": [""]
+        },
+
+        {"tag": "payment",
+         "patterns": ["payment process", "what are payment methods"],
+         "responses": ["We accept various payment methods, including credit cards (Visa, Mastercard, American Express), PayPal, and Apple Pay. If you have any specific payment preferences, please let me know"],
+         "context": [""]
+        },
+
+        {"tag": "order",
+         "patterns": ["order", "How can I track my order"],
+         "responses": ["yes, you can track your order"],
+         "context": [""]
+        },
+
+        {"tag": "company",
+         "patterns": ["tell me about this company?"],
+         "responses": ["We design and develop world-class websites and applications, design better and spend less time without restricting creative freedom They give us all we need for internet purchasing, at the most basic level"],
+         "context": [""]
+        } 
+    ]}
